@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Perfume Generator</title>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    .navbar, .footer {
+      background-color: #333;
+      color: white;
+      padding: 15px;
+    }
+
+    .navbar h1, .footer p {
+      margin: 0;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 120px); /* Adjust height to leave space for header and footer */
+    }
+
+    .text-box {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    #result {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      background-color: #fff;
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .generate-btn {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1>Custom Perfume Generator</h1>
+  </div>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="text-box">
+      <textarea id="description" class="form-control" rows="5" placeholder="Enter the description of your perfume..."></textarea>
+      <button class="btn btn-primary generate-btn" onclick="generatePerfume()">Generate Perfume</button>
+    </div>
+    <div id="result" style="display: none;">
+      <h4>Generated Perfume:</h4>
+      <p id="perfume-output"></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2024 Custom Perfume Generator. All Rights Reserved.</p>
+  </div>
+
+  <!-- JavaScript for interaction -->
+  <script>
+    function generatePerfume() {
+      const description = document.getElementById('description').value;
+      const resultDiv = document.getElementById('result');
+      const output = document.getElementById('perfume-output');
+      
+      if (description.trim() === "") {
+        output.innerHTML = "Please enter a description.";
+      } else {
+        // This is a placeholder for actual AI interaction.
+        // Replace with the actual AI generation logic
+        output.innerHTML = `Your custom perfume is generated based on: "${description}"`;
+      }
+
+      resultDiv.style.display = "block";
+    }
+  </script>
+</body>
+
+</html>

@@ -103,11 +103,13 @@ body {
 
 .hero_bg_box .img-box {
   width: 100%;
+  height: 100%;
 }
 
 .hero_bg_box .img-box img {
-  min-width: 100%;
+  width: 100%;
   min-height: 100%;
+  object-fit: contain;
 }
 
 .hero_bg_box::before {
