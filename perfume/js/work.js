@@ -155,37 +155,13 @@ function generatePerfume() {
         // 延迟后显示文字
         const notesDiv = document.querySelector('.notes');
         notesDiv.style.display = 'block'; // 延迟显示
-    }
     
+        saveButton.addEventListener('click', function() {
+            alert('Perfume is saved successfully!');
+        });
 
-    // 监听Save按钮，显示弹窗
-    saveButton.addEventListener('click', function() {
-        alert('Save button clicked');
-        saveModal.style.display = 'block'; // 显示弹窗
-    });
-
-    // 监听关闭弹窗按钮
-    closeModal.addEventListener('click', function() {
-        saveModal.style.display = 'none'; // 隐藏弹窗
-    });
-
-    // 监听取消按钮
-    cancelSaveButton.addEventListener('click', function() {
-        saveModal.style.display = 'none'; // 隐藏弹窗
-    });
-
-    // 监听确认保存按钮
-    confirmSaveButton.addEventListener('click', function() {
-        const perfumeName = perfumeNameInput.value.trim();
-        if (perfumeName) {
-            // 执行保存逻辑，如保存数据、发送到服务器等
-            console.log(`Name of Perfume: ${perfumeName}`);
-            alert(`Perfume "${perfumeName}" is successfully saved`);
-            saveModal.style.display = 'none'; // 关闭弹窗
-        } else {
-            alert('Please enter a name for the perfume.');
-        }
-    });
+        
+    }
     
     resultDiv.style.display = "block";
 }

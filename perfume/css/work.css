@@ -391,8 +391,8 @@ object-fit: cover; /* 确保图像填充头像区域 */
     display: none; /* 默认隐藏 */
     position: absolute;
     z-index: 1000; /* 显示在最上层 */
-    left: 50%;
-    top: 50%;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
