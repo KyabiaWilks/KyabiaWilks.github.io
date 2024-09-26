@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="images/headicon.png" type="image/x-icon">
+
   <title>Custom Perfume Generator</title>
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -16,70 +18,194 @@
 </head>
 
 <body>
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <h2>User Information</h2>
-    <div class="avatar">
-      <img src="./images/avatar.png" alt="User Avatar">
+  <header class="header_section">
+            <div class="header_top">
+            <div class="container-fluid">
+                <div class="contact_link-container">
+                <a href="" class="contact_link1">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <span>
+                    Zhejiang University
+                    </span>
+                </a>
+                <a href="" class="contact_link2">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <span>
+                    Call : +01 1234567890
+                    </span>
+                </a>
+                <a href="" class="contact_link3">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <span>
+                    demo@zju.edu.cn
+                    </span>
+                </a>
+                </div>
+            </div>
+            </div>
+        </header>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>User Information</h2>
+      <div class="avatar">
+        <img src="./images/avatar.png" alt="User Avatar">
+      </div>
+      <ul>
+        <li><strong>Name:</strong> John Doe</li>
+        <li><strong>Email:</strong> john@example.com</li>
+        <li><strong>Membership:</strong> Premium</li>
+      </ul>
+      
+      <!-- Navigation Buttons -->
+      <div class="sidebar-buttons">
+        <a href="./works.html"><button class="btn btn-secondary btn-block">Works</button></a>
+        <a href="./cart.html"><button class="btn btn-secondary btn-block">Cart</button></a>
+        <a href="./orders.html"><button class="btn btn-secondary btn-block">Orders</button></a>
+        <a href="./settings.html"><button class="btn btn-secondary btn-block">Settings</button></a>
+        <button class="btn btn-danger btn-block">Logout</button>
+      </div>
     </div>
-    <ul>
-      <li><strong>Name:</strong> John Doe</li>
-      <li><strong>Email:</strong> john@example.com</li>
-      <li><strong>Membership:</strong> Premium</li>
-    </ul>
-    
-    <!-- Navigation Buttons -->
-    <div class="sidebar-buttons">
-      <a href="./works.html"><button class="btn btn-secondary btn-block">Works</button></a>
-      <a href="./cart.html"><button class="btn btn-secondary btn-block">Cart</button></a>
-      <a href="./orders.html"><button class="btn btn-secondary btn-block">Orders</button></a>
-      <a href="./settings.html"><button class="btn btn-secondary btn-block">Settings</button></a>
-      <button class="btn btn-danger btn-block">Logout</button>
-    </div>
-</div>
 
-  <!-- Main content -->
-  <div class="main-content">
-    <!-- Navbar -->
-    <div class="navbar">
-      <h1>Custom Perfume Generator</h1>
-    </div>
+    <!-- Main content -->
+    <div class="main-content">
+      <!-- Navbar -->
+      <div class="navbar">
+        <h1>Custom Perfume Generator</h1>
+      </div>
 
-    <div id="particle-container"></div>
+      <div id="particle-container"></div>
 
-    <!-- Perfume Generator Form -->
-    <div class="container">
-      <div class="img-note-box">
-        <div class="img-bottle-box">
-          <div class="bottle">
-              <img src="./images/logoWhite.png" alt="Perfume Bottle">
+      <!-- Perfume Generator Form -->
+      <div class="container">
+        <div class="img-note-box">
+          <div class="img-bottle-box">
+            <div class="bottle">
+                <img src="./images/logoWhite.png" alt="Perfume Bottle">
+            </div>
+          </div>
+          <div class="note-box">
           </div>
         </div>
-        <div class="note-box">
-        </div>
-      </div>
-      <div class="text-box">
-        <div id="result" style="display: none;">
-            <h4>Generated Perfume:</h4>
-            <p id="perfume-output"></p>
-        </div>
-    
-        <textarea id="description" class="form-control" rows="5" placeholder="Enter the description of your perfume..."></textarea>
-        
-        <!-- 原生成按钮 -->
-        <div class="btn-box">
-            <button class="btn-2" onclick="generatePerfume()">Generate Perfume</button>
+        <div class="text-box">
+          <div id="result" style="display: none;">
+              <h4>Generated Perfume:</h4>
+              <p id="perfume-output"></p>
+          </div>
+      
+          <textarea id="description" class="form-control" rows="5" placeholder="Enter the description of your perfume..."></textarea>
+          
+          <!-- 原生成按钮 -->
+          <div class="btn-box">
+              <button class="btn-2" onclick="generatePerfume()">Generate Perfume</button>
+          </div>
         </div>
       </div>
     </div>
-    
 
-    <!-- Footer -->
-    <div class="footer">
-      <p>&copy; 2024 Custom Perfume Generator. All Rights Reserved.</p>
+  <!-- info section -->
+  <section class="info_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="info_logo">
+            <a class="navbar-brand" href="index.html">
+              <span>
+                Perfume
+              </span>
+            </a>
+            <p>
+              With our AI-powered system, we can generate an endless variety of fragrances that match your personal style and preferences. 
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_links">
+            <h5>
+              Useful Link
+            </h5>
+            <ul>
+              <li>
+                <a href="https://github.com/KyabiaWilks/KyabiaWilks.github.io">
+                  kyabia's github
+                </a>
+              </li>
+              <li>
+                <a href="https://www.zjuers.com/">
+                  zjuers' home
+                </a>
+              </li>
+              <li>
+                <a href="http://zdbk.zju.edu.cn/">
+                  zdbk
+                </a>
+              </li>
+              <li>
+                <a href="https://www.baidu.com/">
+                  baidu
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_info">
+            <h5>
+              Contact Us
+            </h5>
+          </div>
+          <div class="info_contact">
+            <a href="" class="">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                Zhejiang University
+              </span>
+            </a>
+            <a href="" class="">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>
+                Call : +01 1234567890
+              </span>
+            </a>
+            <a href="" class="">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>
+                demo@zju.edu.cn
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_form ">
+            <h5>
+              Newsletter
+            </h5>
+            <form action="#">
+              <input type="email" placeholder="Enter your email">
+              <button>
+                Subscribe
+              </button>
+            </form>
+            <div class="social_box">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-youtube" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
+  <!-- end info_section -->
   <!-- Include external JS file -->
   <script src="./js/work.js"></script>
 </body>

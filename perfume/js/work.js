@@ -17,7 +17,7 @@ function generatePerfume() {
         output.innerHTML = "Please enter a description.";
     } else {
         // 前调、中调、后调信息
-        noteBox.innerHTML = `
+    noteBox.innerHTML = `
             <div class="notes">
                 <div class="note"><span class="label">Top Note</span> <span class="content">Citrus</span></div>
                 <div class="note"><span class="label">Middle Note</span> <span class="content">Jasmine</span></div>
