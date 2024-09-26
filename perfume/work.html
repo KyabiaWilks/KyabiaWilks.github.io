@@ -19,36 +19,36 @@
 
 <body>
   <header class="header_section">
-            <div class="header_top">
-            <div class="container-fluid">
-                <div class="contact_link-container">
-                <a href="" class="contact_link1">
-                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    <span>
-                    Zhejiang University
-                    </span>
-                </a>
-                <a href="" class="contact_link2">
-                    <i class="fa fa-phone" aria-hidden="true"></i>
-                    <span>
-                    Call : +01 1234567890
-                    </span>
-                </a>
-                <a href="" class="contact_link3">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                    <span>
-                    demo@zju.edu.cn
-                    </span>
-                </a>
-                </div>
-            </div>
-            </div>
-        </header>
+    <div class="header_top">
+      <div class="container-fluid">
+        <div class="contact_link-container">
+          <a href="" class="contact_link1">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <span>
+              Zhejiang University
+            </span>
+          </a>
+          <a href="" class="contact_link2">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <span>
+              Call : +01 1234567890
+            </span>
+          </a>
+          <a href="" class="contact_link3">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <span>
+              demo@zju.edu.cn
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+    </header>
     <!-- Sidebar -->
     <div class="sidebar">
       <h2>User Information</h2>
       <div class="avatar">
-        <img src="./images/avatar.png" alt="User Avatar">
+        <img src="./images/avatar.jpg" alt="User Avatar">
       </div>
       <ul>
         <li><strong>Name:</strong> John Doe</li>
@@ -62,7 +62,7 @@
         <a href="./cart.html"><button class="btn btn-secondary btn-block">Cart</button></a>
         <a href="./orders.html"><button class="btn btn-secondary btn-block">Orders</button></a>
         <a href="./settings.html"><button class="btn btn-secondary btn-block">Settings</button></a>
-        <button class="btn btn-danger btn-block">Logout</button>
+        <button class="btn btn-danger btn-block" onclick="toggleLogin()">Logout</button>
       </div>
     </div>
 
@@ -82,6 +82,7 @@
             <div class="bottle">
                 <img src="./images/logoWhite.png" alt="Perfume Bottle">
             </div>
+            
           </div>
           <div class="note-box">
           </div>
@@ -100,11 +101,11 @@
           </div>
         </div>
       </div>
-    </div>
+    
 
   <!-- info section -->
   <section class="info_section ">
-    <div class="container">
+    <div class="info_container">
       <div class="row">
         <div class="col-md-3">
           <div class="info_logo">
@@ -204,10 +205,45 @@
       </div>
     </div>
   </section>
-
+</div>
   <!-- end info_section -->
+  <div id="saveModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Saving</h2>
+        <input type="text" id="perfumeName" placeholder="Please enter the name of perfume">
+        <div class="modal-buttons">
+            <button id="confirmSave" class="btn-2">Yes</button>
+            <button id="cancelSave" class="btn-2">Np</button>
+        </div>
+    </div>
+</div>
   <!-- Include external JS file -->
   <script src="./js/work.js"></script>
+  <script>
+    let isLoggedIn = true; // 用户登录状态变量
+
+    function toggleLogin() {
+      isLoggedIn = !isLoggedIn; // 切换登录状态
+      updateUserInfoDisplay();
+    }
+
+    function updateUserInfoDisplay() {
+      const userInfo = document.querySelector('.sidebar');
+      const loginPrompt = document.getElementById('login-prompt');
+
+      if (isLoggedIn) {
+        userInfo.style.display = 'block';
+        loginPrompt.style.display = 'none';
+      } else {
+        userInfo.style.display = 'none';
+        loginPrompt.style.display = 'block';
+      }
+    }
+
+    // 页面加载时初始化用户信息显示
+    updateUserInfoDisplay();
+  </script>
 </body>
 
 </html>

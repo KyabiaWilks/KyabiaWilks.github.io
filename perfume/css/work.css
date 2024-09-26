@@ -8,32 +8,27 @@ html {
   background-color: #1f1f1f;
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 
 body {
+    height: 100%;
     min-height: 100vh;
     font-family: 'Open Sans', sans-serif;
     background-color: #2e2e2e; /* 深灰色背景，提升视觉一致性 */
     color: white;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     background-image: url('path/to/your/background.jpg'); /* 可替换为你的背景图 */
     background-size: cover;
     background-position: center;
 }
 
 a {
-    z-index: 1002;
+    z-index: 500;
 }
 
-.header_section{
-    z-index: 1000;
-}
-
-.contact_link-container{
-    z-index: 1001;
+button {
+    z-index: 500;
 }
 
 .sidebar {
@@ -70,25 +65,19 @@ object-fit: cover; /* 确保图像填充头像区域 */
 }
 
 .sidebar-buttons {
-    margin-top: auto; /* 按钮靠底 */
-    z-index: 999;
+    margin-top: 280px; /* 保持按钮靠底 */
+    z-index: 400;
+    display: flex; /* 使用 flexbox 对齐按钮 */
+    flex-direction: column; /* 纵向排列按钮 */
+    justify-content: flex-end; /* 对齐到下边缘 */
 }
 
-.btn btn-secondary btn-block {
-    margin-bottom: 10px; /* 按钮之间的间距 */
-    background-color: #444; /* 按钮的初始背景颜色 */
-    color: #fff; /* 按钮文字颜色 */
-    border-radius: 5px; /* 圆角效果 */
-    z-index: 1000;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* 添加过渡效果 */
-}
-
+/* 更新按钮样式以确保一致性 */
 .sidebar-buttons .btn {
     margin-bottom: 10px; /* 按钮之间的间距 */
     background-color: #444; /* 按钮的初始背景颜色 */
     color: #fff; /* 按钮文字颜色 */
     border-radius: 5px; /* 圆角效果 */
-    z-index: 1001;
     transition: background-color 0.3s ease, transform 0.3s ease; /* 添加过渡效果 */
 }
 
@@ -113,11 +102,11 @@ object-fit: cover; /* 确保图像填充头像区域 */
 
 .main-content {
     margin-left: 250px;
-    padding: 20px;
+    padding: 0px;
     position: relative;
     z-index: 1;
     background-color: #1f1f1f; /* 半透明深色背景 */
-    border-radius: 10px; /* 圆角效果 */
+    border-radius: 0px; /* 圆角效果 */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* 增加阴影，增强视觉效果 */
 }
 
@@ -224,7 +213,7 @@ object-fit: cover; /* 确保图像填充头像区域 */
     height: 300px; /* 根据需要设置容器高度 */
     width: 100%; /* 设置容器的宽度 */
     position: absolute;
-    top: 40%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     overflow: hidden; /* 隐藏溢出的部分 */
@@ -237,7 +226,8 @@ object-fit: cover; /* 确保图像填充头像区域 */
     height: 100%; /* 高度适应容器 */
     width: auto; /* 保持宽高比 */
     position: absolute;
-    top: 40%;
+    z-index: 10;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* 使图片居中 */
     object-fit: cover; /* 确保图片的长边适应容器 */
@@ -249,9 +239,10 @@ object-fit: cover; /* 确保图像填充头像区域 */
 
 /* 粒子动效 */
 .particle-container {
+    max-height: 100%;
     position: absolute;
     pointer-events: none;
-    z-index: 9999;
+    z-index: 0;
 }
 
 .particle {
@@ -267,15 +258,15 @@ object-fit: cover; /* 确保图像填充头像区域 */
 
 .note-box {
     position: absolute;
-    top: 20%;
-    right: 10%;
-    width: 50%; /* 设置note-box占据一半的宽度 */
-    height: 100%;
+    top: 12%;
+    right: 20%;
+    width: 30%; /* 设置note-box占据一半的宽度 */
+    height: 100vh;
     z-index: 2; /* 让文字层次高一些，显示在图片上方 */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 20px; /* 增加适当内边距 */
+    padding: 20px 0; /* 增加适当内边距 */
 }
 
 .notes {
@@ -288,9 +279,9 @@ object-fit: cover; /* 确保图像填充头像区域 */
     display: flex;
     justify-content: space-between; /* 左右两部分对齐 */
     align-items: center;
-    width: 100%;
-    margin: 40px;
-    padding: 0px; /* 增加内边距 */
+    width: 220px;
+    margin: 40px 0;
+    padding: 0px 10px 0 0px; /* 增加内边距 */
     border-radius: 30px; /* 胶囊状椭圆形 */
     border: 1px solid white; /* 椭圆形细轮廓 */
     font-size: 0.9em; /* 字体变小 */
@@ -307,9 +298,7 @@ object-fit: cover; /* 确保图像填充头像区域 */
 .note .content {
     color: white; /* 白色字体 */
     background-color: transparent; /* 透明背景 */
-    border: 1px solid white; /* 白色边框 */
-    padding: 5px 15px; /* 增加内边距 */
-    border-radius: 30px; /* 胶囊状 */
+    padding: 5px 0px; /* 增加内边距 */
 }
 
   
@@ -363,6 +352,70 @@ object-fit: cover; /* 确保图像填充头像区域 */
 }
 
 .btn {
-    position: relative;
-    z-index: 999; /* Ensure it's above other elements */
+    z-index: 2000; /* Ensure it's above other elements */
+}
+
+.btn:hover {
+    background-color: #f19f25; /* Change color on hover */
+}
+
+.info_section {
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0px;
+}
+
+.info_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 左右布局 */
+    align-items: center;
+    margin-top: 0px;
+    padding: 20px;
+}
+
+.color-block {
+    width: 120px;
+    height: 128px;
+    border-radius: 15px;
+    position: absolute;
+    top: 37%;
+    left: 46%;
+    z-index: -1;
+}
+
+/* 弹窗模态框样式 */
+.modal {
+    display: none; /* 默认隐藏 */
+    position: absolute;
+    z-index: 1000; /* 显示在最上层 */
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
 }
