@@ -19,6 +19,9 @@
   <!-- Sidebar -->
   <div class="sidebar">
     <h2>User Information</h2>
+    <div class="avatar">
+      <img src="./images/avatar.png" alt="User Avatar">
+    </div>
     <ul>
       <li><strong>Name:</strong> John Doe</li>
       <li><strong>Email:</strong> john@example.com</li>
@@ -26,10 +29,12 @@
     </ul>
     
     <!-- Navigation Buttons -->
-    <<div class="sidebar-buttons">
-        <button class="btn btn-secondary btn-block">Settings</button>
-        <button class="btn btn-secondary btn-block">My Cart</button>
-        <button class="btn btn-danger btn-block">Logout</button>
+    <div class="sidebar-buttons">
+      <a href="./works.html"><button class="btn btn-secondary btn-block">Works</button></a>
+      <a href="./cart.html"><button class="btn btn-secondary btn-block">Cart</button></a>
+      <a href="./orders.html"><button class="btn btn-secondary btn-block">Orders</button></a>
+      <a href="./settings.html"><button class="btn btn-secondary btn-block">Settings</button></a>
+      <button class="btn btn-danger btn-block">Logout</button>
     </div>
 </div>
 
@@ -44,17 +49,30 @@
 
     <!-- Perfume Generator Form -->
     <div class="container">
+      <div class="img-note-box">
+        <div class="img-bottle-box">
+          <div class="bottle">
+              <img src="./images/logoWhite.png" alt="Perfume Bottle">
+          </div>
+        </div>
+        <div class="note-box">
+        </div>
+      </div>
       <div class="text-box">
         <div id="result" style="display: none;">
             <h4>Generated Perfume:</h4>
             <p id="perfume-output"></p>
         </div>
+    
         <textarea id="description" class="form-control" rows="5" placeholder="Enter the description of your perfume..."></textarea>
+        
+        <!-- 原生成按钮 -->
         <div class="btn-box">
             <button class="btn-2" onclick="generatePerfume()">Generate Perfume</button>
         </div>
       </div>
     </div>
+    
 
     <!-- Footer -->
     <div class="footer">
@@ -62,32 +80,8 @@
     </div>
   </div>
 
-  <!-- JavaScript for interaction -->
-  <script>
-    function generatePerfume() {
-      const description = document.getElementById('description').value;
-      const resultDiv = document.getElementById('result');
-      const output = document.getElementById('perfume-output');
-
-      if (description.trim() === "") {
-        output.innerHTML = "Please enter a description.";
-      } else {
-        // Placeholder for AI interaction
-        output.innerHTML = `Your custom perfume is generated based on: "${description}"`;
-      }
-
-      resultDiv.style.display = "block";
-    }
-
-    // Particle effect
-    window.onload = function() {
-      for (let i = 0; i < 100; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        document.getElementById('particle-container').appendChild(particle);
-      }
-    }
-  </script>
+  <!-- Include external JS file -->
+  <script src="./js/work.js"></script>
 </body>
 
 </html>

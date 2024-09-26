@@ -1,9 +1,20 @@
 /* General Styles */
 @import url("font-awesome.min.css");
 
+html {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  background-color: #1f1f1f;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 body {
+    min-height: 100vh;
     font-family: 'Open Sans', sans-serif;
-    background-color: #f0f0f0; /* 更改背景色 */
+    background-color: #2e2e2e; /* 深灰色背景，提升视觉一致性 */
+    color: white;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -15,32 +26,61 @@ body {
 .sidebar {
     width: 250px;
     height: 100vh;
-    background-color: #1c1c1c;
+    background-color: rgba(15, 15, 15, 0.9); /* 深色背景 */
     color: #fff;
     position: fixed;
     left: 0;
     top: 0;
     padding: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* 增加阴影，提升视觉层次 */
     display: flex;
     flex-direction: column;
-  }
-  
-  .sidebar-buttons {
-    margin-top: auto; /* Push buttons to the bottom */
-  }
-  
-  .sidebar-buttons .btn {
-    margin-bottom: 10px; /* Space between buttons */
-  }
-  
-  .sidebar-buttons .btn:last-child {
-    margin-bottom: 0; /* Remove margin from the last button */
-  }
-  
+    transition: background-color 0.3s ease; /* 增加过渡效果 */
+}
+
+.avatar {
+display: flex;
+justify-content: center;
+margin-bottom: 20px;
+}
+
+.avatar img {
+width: 100px;
+height: 100px;
+border-radius: 50%; /* 圆形头像 */
+object-fit: cover; /* 确保图像填充头像区域 */
+}
 
 .sidebar:hover {
-    background-color: rgba(28, 28, 28, 1); /* 悬停时的效果 */
+    background-color: #333; /* 悬停时改变背景色 */
+}
+
+.sidebar-buttons {
+    margin-top: auto; /* 按钮靠底 */
+    z-index: 999;
+}
+
+.btn btn-secondary btn-block {
+    margin-bottom: 10px; /* 按钮之间的间距 */
+    background-color: #444; /* 按钮的初始背景颜色 */
+    color: #fff; /* 按钮文字颜色 */
+    border-radius: 5px; /* 圆角效果 */
+    z-index: 999;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* 添加过渡效果 */
+}
+
+.sidebar-buttons .btn {
+    margin-bottom: 10px; /* 按钮之间的间距 */
+    background-color: #444; /* 按钮的初始背景颜色 */
+    color: #fff; /* 按钮文字颜色 */
+    border-radius: 5px; /* 圆角效果 */
+    z-index: 999;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* 添加过渡效果 */
+}
+
+.sidebar-buttons .btn:hover {
+    background-color: #f1db25; /* 悬停时按钮变成亮黄色 */
+    transform: scale(1.05); /* 悬停时按钮微微放大 */
 }
 
 .sidebar h2 {
@@ -62,49 +102,52 @@ body {
     padding: 20px;
     position: relative;
     z-index: 1;
-    background-color: rgba(255, 255, 255, 0.8); /* 半透明背景 */
+    background-color: #1f1f1f; /* 半透明深色背景 */
     border-radius: 10px; /* 圆角效果 */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* 增加阴影，增强视觉效果 */
 }
 
 .navbar, .footer {
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0); /* 更深的背景色 */
     color: white;
     padding: 15px;
 }
 
 .navbar h1, .footer p {
     margin: 0;
-    text-align: center;
+    text-align: left;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between; /* 左右布局 */
     align-items: center;
-    height: calc(100vh - 160px); /* Adjust height to leave space for header and footer */
+    height: calc(100vh - 160px); /* 为头部和尾部预留空间 */
 }
 
 .text-box {
     width: 100%;
     max-width: 600px;
+    z-index: 999;
 }
 
 #result {
-    margin-top: 20px;
+    margin-top: 0px;
     padding: 10px;
-    border: 1px solid #ddd;
-    background-color: #fff;
+    border: 1px solid #555; /* 边框颜色与背景协调 */
+    background-color: #222; /* 深色背景 */
+    color: #fff; /* 文字颜色为白色，增加对比 */
     width: 100%;
     max-width: 600px;
     text-align: center;
     border-radius: 5px; /* 圆角效果 */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 轻微阴影 */
 }
 
 .generate-btn {
     margin-top: 10px;
+    z-index: 999;
 }
 
 #particle-container {
@@ -121,7 +164,7 @@ body {
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: rgba(241, 219, 37, 0.7);
+    background-color: rgba(241, 219, 37, 0.7); /* 亮黄色粒子 */
     border-radius: 50%;
     animation: move 10s infinite;
 }
@@ -140,7 +183,7 @@ body {
 .btn-box .btn-2 {
     display: inline-block;
     padding: 10px 35px;
-    background-color: #f1db25;
+    background-color: #f1db25; /* 按钮为亮黄色 */
     color: #ffffff;
     transition: all 0.3s;
     border: 1px solid transparent;
@@ -152,4 +195,160 @@ body {
     border-color: #f1db25;
     color: #f1db25;
     transform: scale(1.05); /* 悬停时放大效果 */
+}
+
+.img-note-box {
+    display: flex; /* 使用 flex 布局实现横向排列 */
+    justify-content: space-between; /* 子元素间分配空间 */
+    align-items: center; /* 垂直居中对齐 */
+    width: 60%; /* 父容器占满可用宽度 */
+    max-width: 360px;
+    height: 400px; /* 父容器占满可用高度，或指定高度 */
+}
+
+.img-bottle-box {
+    height: 300px; /* 根据需要设置容器高度 */
+    width: 100%; /* 设置容器的宽度 */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden; /* 隐藏溢出的部分 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-bottle-box img {
+    height: 100%; /* 高度适应容器 */
+    width: auto; /* 保持宽高比 */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 使图片居中 */
+    object-fit: cover; /* 确保图片的长边适应容器 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s ease; /* 图片平滑移动效果 */
+}
+
+/* 粒子动效 */
+.particle-container {
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 1;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+
+.note-box {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    width: 50%; /* 设置note-box占据一半的宽度 */
+    height: 100%;
+    z-index: 2; /* 让文字层次高一些，显示在图片上方 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px; /* 增加适当内边距 */
+}
+
+.notes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* 每行之间的等宽间距 */
+}
+
+.note {
+    display: flex;
+    justify-content: space-between; /* 左右两部分对齐 */
+    align-items: center;
+    width: 100%;
+    margin: 40px;
+    padding: 0px; /* 增加内边距 */
+    border-radius: 30px; /* 胶囊状椭圆形 */
+    border: 1px solid white; /* 椭圆形细轮廓 */
+    font-size: 0.9em; /* 字体变小 */
+}
+
+.note .label {
+    background-color: white; /* 填充白色 */
+    color: black; /* 黑色字体 */
+    padding: 5px 15px; /* 调整内边距 */
+    border-radius: 30px; /* 胶囊状 */
+    margin-right: 10px; /* 增加右侧间距 */
+}
+
+.note .content {
+    color: white; /* 白色字体 */
+    background-color: transparent; /* 透明背景 */
+    border: 1px solid white; /* 白色边框 */
+    padding: 5px 15px; /* 增加内边距 */
+    border-radius: 30px; /* 胶囊状 */
+}
+
+  
+  .btn-box {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .save-btn, .create-new-btn {
+    padding: 10px 20px;
+    background-color: #f1db25;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 999;
+  }
+  
+  .save-btn:hover, .create-new-btn:hover {
+    background-color: transparent;
+    border-color: #f1db25;
+    color: #f1db25;
+    transform: scale(1.05);
+  }
+  
+  .notes {
+    color:white;
+    height: 300px;
+    display: none; /* 默认隐藏 */
+    margin-right: 20px;
+    flex: 1;
+    text-align: left;
+}
+
+.text-box {
+    flex: 1;
+    text-align: left;
+    position: relative;
+}
+
+.text-box p {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.btn-2 {
+    margin-top: 10px;
+    z-index: 999;
+}
+
+.btn {
+    position: relative;
+    z-index: 999; /* Ensure it's above other elements */
 }
