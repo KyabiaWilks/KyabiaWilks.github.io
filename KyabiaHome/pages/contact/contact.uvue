@@ -1,0 +1,352 @@
+<template>
+	<view class="contact-container">
+		<view class="contact-header">
+			<text class="page-title">联系我</text>
+			<text class="page-subtitle">让我们一起创造美好的作品</text>
+		</view>
+		
+		<view class="contact-content">
+			<!-- 联系表单 -->
+			<view class="contact-form-section">
+				<view class="form-title">
+					<text class="form-title-text">发送消息</text>
+				</view>
+				<form @submit="submitForm">
+					<view class="form-group">
+						<input 
+							class="form-input" 
+							type="text" 
+							placeholder="您的姓名"
+							v-model="form.name"
+						/>
+					</view>
+					<view class="form-group">
+						<input 
+							class="form-input" 
+							type="email" 
+							placeholder="邮箱地址"
+							v-model="form.email"
+						/>
+					</view>
+					<view class="form-group">
+						<input 
+							class="form-input" 
+							type="text" 
+							placeholder="主题"
+							v-model="form.subject"
+						/>
+					</view>
+					<view class="form-group">
+						<textarea 
+							class="form-textarea" 
+							placeholder="请输入您的消息..."
+							v-model="form.message"
+						></textarea>
+					</view>
+					<button class="submit-btn" type="submit" :disabled="isSubmitting">
+						<text class="submit-text">{{ isSubmitting ? '发送中...' : '发送消息' }}</text>
+					</button>
+				</form>
+			</view>
+			
+			<!-- 联系信息 -->
+			<view class="contact-info-section">
+				<view class="info-title">
+					<text class="info-title-text">联系方式</text>
+				</view>
+				<view class="contact-info-list">
+					<view class="contact-info-item">
+						<view class="contact-icon">
+							<text class="icon-text">📱</text>
+						</view>
+						<view class="contact-details">
+							<text class="contact-label">电话</text>
+							<text class="contact-value">+86 138 0000 0000</text>
+						</view>
+					</view>
+					
+					<view class="contact-info-item">
+						<view class="contact-icon">
+							<text class="icon-text">📧</text>
+						</view>
+						<view class="contact-details">
+							<text class="contact-label">邮箱</text>
+							<text class="contact-value">kyabia@example.com</text>
+						</view>
+					</view>
+					
+					<view class="contact-info-item">
+						<view class="contact-icon">
+							<text class="icon-text">📍</text>
+						</view>
+						<view class="contact-details">
+							<text class="contact-label">地址</text>
+							<text class="contact-value">中国 北京</text>
+						</view>
+					</view>
+				</view>
+			</view>
+			
+			<!-- 社交媒体 -->
+			<view class="social-section">
+				<view class="social-title">
+					<text class="social-title-text">关注我</text>
+				</view>
+				<view class="social-links">
+					<view class="social-item" @click="openSocial('wechat')">
+						<text class="social-icon">💬</text>
+						<text class="social-name">微信</text>
+					</view>
+					<view class="social-item" @click="openSocial('github')">
+						<text class="social-icon">🐙</text>
+						<text class="social-name">GitHub</text>
+					</view>
+					<view class="social-item" @click="openSocial('linkedin')">
+						<text class="social-icon">💼</text>
+						<text class="social-name">LinkedIn</text>
+					</view>
+					<view class="social-item" @click="openSocial('twitter')">
+						<text class="social-icon">🐦</text>
+						<text class="social-name">Twitter</text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				isSubmitting: false,
+				form: {
+					name: '',
+					email: '',
+					subject: '',
+					message: ''
+				}
+			}
+		},
+		onLoad() {
+			console.log('联系我页面加载完成')
+		},
+		methods: {
+			submitForm() {
+				if (!this.form.name || !this.form.email || !this.form.message) {
+					uni.showToast({
+						title: '请填写完整信息',
+						icon: 'none'
+					})
+					return
+				}
+				
+				this.isSubmitting = true
+				
+				// 模拟发送消息
+				setTimeout(() => {
+					this.isSubmitting = false
+					uni.showToast({
+						title: '消息发送成功！',
+						icon: 'success'
+					})
+					
+					// 重置表单
+					this.form = {
+						name: '',
+						email: '',
+						subject: '',
+						message: ''
+					}
+				}, 2000)
+			},
+			openSocial(platform) {
+				const socialLinks = {
+					wechat: 'weixin://',
+					github: 'https://github.com/kyabia',
+					linkedin: 'https://linkedin.com/in/kyabia',
+					twitter: 'https://twitter.com/kyabia'
+				}
+				
+				if (platform === 'wechat') {
+					uni.showToast({
+						title: '请添加微信：kyabia_dev',
+						icon: 'none',
+						duration: 3000
+					})
+				} else {
+					// #ifdef H5
+					window.open(socialLinks[platform], '_blank')
+					// #endif
+					
+					// #ifdef APP-PLUS
+					plus.runtime.openURL(socialLinks[platform])
+					// #endif
+					
+					// #ifdef MP
+					uni.showToast({
+						title: '请在浏览器中打开',
+						icon: 'none'
+					})
+					// #endif
+				}
+			}
+		}
+	}
+</script>
+
+<style>
+	.contact-container {
+		background: #f8f9fa;
+		min-height: 100vh;
+		padding: 20px;
+	}
+	
+	.contact-header {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	
+	.page-title {
+		display: block;
+		font-size: 28px;
+		font-weight: bold;
+		color: #333;
+		margin-bottom: 8px;
+	}
+	
+	.page-subtitle {
+		display: block;
+		font-size: 14px;
+		color: #666;
+	}
+	
+	.contact-content {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+	
+	.contact-form-section, .contact-info-section, .social-section {
+		background: #ffffff;
+		border-radius: 15px;
+		padding: 20px;
+		box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+	}
+	
+	.form-title, .info-title, .social-title {
+		margin-bottom: 20px;
+	}
+	
+	.form-title-text, .info-title-text, .social-title-text {
+		font-size: 18px;
+		font-weight: bold;
+		color: #333;
+	}
+	
+	.form-group {
+		margin-bottom: 15px;
+	}
+	
+	.form-input, .form-textarea {
+		width: 100%;
+		padding: 12px 15px;
+		border: 1px solid #ddd;
+		border-radius: 8px;
+		font-size: 14px;
+		background: #fafafa;
+	}
+	
+	.form-textarea {
+		height: 100px;
+		resize: none;
+	}
+	
+	.submit-btn {
+		width: 100%;
+		background: #007AFF;
+		border: none;
+		border-radius: 8px;
+		padding: 15px;
+		margin-top: 10px;
+	}
+	
+	.submit-btn:disabled {
+		background: #ccc;
+	}
+	
+	.submit-text {
+		color: #ffffff;
+		font-size: 16px;
+		font-weight: 500;
+	}
+	
+	.contact-info-list {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+	
+	.contact-info-item {
+		display: flex;
+		align-items: center;
+	}
+	
+	.contact-icon {
+		width: 40px;
+		height: 40px;
+		background: #f0f0f0;
+		border-radius: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-right: 15px;
+	}
+	
+	.icon-text {
+		font-size: 18px;
+	}
+	
+	.contact-details {
+		flex: 1;
+	}
+	
+	.contact-label {
+		display: block;
+		font-size: 12px;
+		color: #666;
+		margin-bottom: 2px;
+	}
+	
+	.contact-value {
+		display: block;
+		font-size: 14px;
+		color: #333;
+		font-weight: 500;
+	}
+	
+	.social-links {
+		display: flex;
+		justify-content: space-around;
+	}
+	
+	.social-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 15px;
+		border-radius: 10px;
+		background: #f8f9fa;
+		min-width: 60px;
+	}
+	
+	.social-icon {
+		font-size: 24px;
+		margin-bottom: 8px;
+	}
+	
+	.social-name {
+		font-size: 12px;
+		color: #666;
+	}
+</style>

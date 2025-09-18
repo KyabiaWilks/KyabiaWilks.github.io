@@ -1,0 +1,82 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "Kyabia - 个人主页",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/about/about",
+			"style": {
+				"navigationBarTitleText": "关于我",
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/works/works",
+			"style": {
+				"navigationBarTitleText": "作品集",
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/work-detail/work-detail",
+			"style": {
+				"navigationBarTitleText": "作品详情",
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/contact/contact",
+			"style": {
+				"navigationBarTitleText": "联系我",
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTextStyle": "black"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "Kyabia",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#3cc51f",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/tabbar/home.png",
+				"selectedIconPath": "static/tabbar/home-active.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/works/works",
+				"iconPath": "static/tabbar/works.png",
+				"selectedIconPath": "static/tabbar/works-active.png",
+				"text": "作品"
+			},
+			{
+				"pagePath": "pages/about/about",
+				"iconPath": "static/tabbar/about.png",
+				"selectedIconPath": "static/tabbar/about-active.png",
+				"text": "关于"
+			},
+			{
+				"pagePath": "pages/contact/contact",
+				"iconPath": "static/tabbar/contact.png",
+				"selectedIconPath": "static/tabbar/contact-active.png",
+				"text": "联系"
+			}
+		]
+	},
+	"uniIdRouter": {}
+}

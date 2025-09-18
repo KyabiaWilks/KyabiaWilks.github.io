@@ -1,0 +1,38 @@
+{
+  "name": "kyabia-home",
+  "version": "1.0.0",
+  "description": "Kyabia的个人主页 - 基于uni-app的多端应用",
+  "main": "main.uts",
+  "scripts": {
+    "dev:h5": "uni build --platform h5 --mode development --watch",
+    "build:h5": "uni build --platform h5 --mode production",
+    "dev:mp-weixin": "uni build --platform mp-weixin --mode development --watch",
+    "build:mp-weixin": "uni build --platform mp-weixin --mode production",
+    "dev:app": "uni build --platform app --mode development --watch",
+    "build:app": "uni build --platform app --mode production",
+    "serve": "uni serve --platform h5",
+    "preview": "uni preview --platform h5"
+  },
+  "keywords": [
+    "uni-app",
+    "vue3",
+    "typescript",
+    "multi-platform",
+    "personal-website"
+  ],
+  "author": "Kyabia",
+  "license": "MIT",
+  "devDependencies": {
+    "@dcloudio/uni-cli-shared": "^3.0.0",
+    "@dcloudio/uni-app": "^3.0.0",
+    "@dcloudio/uni-h5": "^3.0.0",
+    "@dcloudio/uni-mp-weixin": "^3.0.0",
+    "@dcloudio/uni-app-plus": "^3.0.0"
+  },
+  "dependencies": {
+    "vue": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

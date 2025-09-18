@@ -1,0 +1,237 @@
+<template>
+	<view class="works-container">
+		<view class="works-header">
+			<text class="page-title">作品集</text>
+			<text class="page-subtitle">展示我的创意与技能</text>
+		</view>
+		
+		<view class="works-grid">
+			<view 
+				class="work-item" 
+				v-for="(work, index) in works" 
+				:key="work.id"
+				@click="viewWorkDetail(work)"
+			>
+				<view class="work-image-container">
+					<image class="work-image" :src="work.image" mode="aspectFill"></image>
+					<view class="work-overlay">
+						<text class="work-number">{{ work.number }}</text>
+					</view>
+				</view>
+				<view class="work-info">
+					<text class="work-title">{{ work.title }}</text>
+					<text class="work-description">{{ work.description }}</text>
+					<view class="work-tags">
+						<text class="work-tag" v-for="tag in work.tags" :key="tag">{{ tag }}</text>
+					</view>
+				</view>
+			</view>
+		</view>
+		
+		<!-- 加载更多 -->
+		<view class="load-more" v-if="hasMore">
+			<button class="load-more-btn" @click="loadMore">
+				<text class="load-more-text">加载更多</text>
+			</button>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				hasMore: true,
+				works: [
+					{
+						id: 1,
+						number: '001/006',
+						title: 'Fringilla sit amet',
+						description: 'Nulla facilisi. Vivamus vestibulum, elit in scelerisque ultricies.',
+						image: '/static/images/work01-hover.jpg',
+						tags: ['Web Design', 'UI/UX']
+					},
+					{
+						id: 2,
+						number: '002/006',
+						title: 'WeChat Program Mini',
+						description: 'Set an example for kyabia\'s WeChat program homework.',
+						image: '/static/images/work02-hover.jpg',
+						tags: ['小程序', '微信开发']
+					},
+					{
+						id: 3,
+						number: '003/006',
+						title: 'Vivamus vestibulum',
+						description: 'Fusce sed hendrerit augue, a rhoncus velit. In non lorem mattis, tempor sem sit amet.',
+						image: '/static/images/perfume_page.jpg',
+						tags: ['E-commerce', 'Full Stack']
+					},
+					{
+						id: 4,
+						number: '004/006',
+						title: 'Nulla scelerisque',
+						description: 'Proin pharetra metus id iaculis dignissim. In aliquet lorem ut ex ullamcorper.',
+						image: '/static/images/work02-hover.jpg',
+						tags: ['Mobile App', 'React Native']
+					},
+					{
+						id: 5,
+						number: '005/006',
+						title: 'Fringilla sit amet',
+						description: 'Nulla facilisi. Vivamus vestibulum, elit in scelerisque ultricies.',
+						image: '/static/images/work01-hover.jpg',
+						tags: ['Vue.js', 'Frontend']
+					},
+					{
+						id: 6,
+						number: '006/006',
+						title: 'Vivamus vestibulum',
+						description: 'Fusce sed hendrerit augue, a rhoncus velit. In non lorem mattis, tempor sem sit amet.',
+						image: '/static/images/perfume_page.jpg',
+						tags: ['uni-app', 'Cross Platform']
+					}
+				]
+			}
+		},
+		onLoad() {
+			console.log('作品集页面加载完成')
+		},
+		methods: {
+			viewWorkDetail(work) {
+				uni.navigateTo({
+					url: `/pages/work-detail/work-detail?id=${work.id}&title=${encodeURIComponent(work.title)}`
+				})
+			},
+			loadMore() {
+				// 模拟加载更多数据
+				uni.showToast({
+					title: '暂无更多作品',
+					icon: 'none'
+				})
+			}
+		}
+	}
+</script>
+
+<style>
+	.works-container {
+		background: #f8f9fa;
+		min-height: 100vh;
+		padding: 20px;
+	}
+	
+	.works-header {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	
+	.page-title {
+		display: block;
+		font-size: 28px;
+		font-weight: bold;
+		color: #333;
+		margin-bottom: 8px;
+	}
+	
+	.page-subtitle {
+		display: block;
+		font-size: 14px;
+		color: #666;
+	}
+	
+	.works-grid {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+	
+	.work-item {
+		background: #ffffff;
+		border-radius: 15px;
+		overflow: hidden;
+		box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s ease;
+	}
+	
+	.work-item:active {
+		transform: scale(0.98);
+	}
+	
+	.work-image-container {
+		position: relative;
+		height: 200px;
+		overflow: hidden;
+	}
+	
+	.work-image {
+		width: 100%;
+		height: 100%;
+	}
+	
+	.work-overlay {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		background: rgba(0, 0, 0, 0.7);
+		padding: 5px 10px;
+		border-radius: 15px;
+	}
+	
+	.work-number {
+		color: #ffffff;
+		font-size: 12px;
+		font-weight: bold;
+	}
+	
+	.work-info {
+		padding: 20px;
+	}
+	
+	.work-title {
+		display: block;
+		font-size: 18px;
+		font-weight: bold;
+		color: #333;
+		margin-bottom: 8px;
+	}
+	
+	.work-description {
+		display: block;
+		font-size: 14px;
+		color: #666;
+		line-height: 1.5;
+		margin-bottom: 15px;
+	}
+	
+	.work-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+	
+	.work-tag {
+		background: #f0f0f0;
+		color: #666;
+		font-size: 12px;
+		padding: 4px 8px;
+		border-radius: 12px;
+	}
+	
+	.load-more {
+		text-align: center;
+		margin-top: 30px;
+	}
+	
+	.load-more-btn {
+		background: #007AFF;
+		border: none;
+		border-radius: 25px;
+		padding: 12px 30px;
+	}
+	
+	.load-more-text {
+		color: #ffffff;
+		font-size: 14px;
+	}
+</style>

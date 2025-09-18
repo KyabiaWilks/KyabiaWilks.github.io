@@ -1,0 +1,60 @@
+{
+  "analysis": {
+    "totalFilesToDelete": 1,
+    "totalSizeToDelete": 652,
+    "filesToDelete": [
+      {
+        "name": "index.html",
+        "path": "/Users/kyabiawilks/KyabiaHome/KyabiaWilks.github.io/KyabiaHome/index.html",
+        "size": 652,
+        "sizeFormatted": "652 B"
+      }
+    ],
+    "directoriesToDelete": []
+  },
+  "recommendations": [
+    {
+      "action": "删除旧 HTML 文件",
+      "reason": "已被 uni-app 页面替代",
+      "files": [
+        "about.html",
+        "contact.html",
+        "index.html",
+        "work.html",
+        "works.html",
+        "components.html"
+      ]
+    },
+    {
+      "action": "删除旧 CSS/JS 文件",
+      "reason": "已被 uni-app 样式和脚本替代",
+      "files": [
+        "main.3f6952e4.css",
+        "main.3f6952e4.css.gz",
+        "main.70a66962.js",
+        "main.70a66962.js.gz",
+        "main.70a66962.map"
+      ]
+    },
+    {
+      "action": "删除旧资源目录",
+      "reason": "资源已迁移到 KyabiaHome/static/ 目录",
+      "files": [
+        "assets/"
+      ]
+    },
+    {
+      "action": "删除香水项目目录",
+      "reason": "内容已整合到 uni-app 项目中",
+      "files": [
+        "perfume/"
+      ]
+    }
+  ],
+  "safetyChecks": [
+    "确保 KyabiaHome/ 目录完整",
+    "确保 README.md 存在",
+    "确保 .git/ 目录完整",
+    "备份重要数据"
+  ]
+}

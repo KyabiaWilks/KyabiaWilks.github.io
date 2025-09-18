@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KyabiaHome - 页面查看器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin-bottom: 10px;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+        
+        .nav-tab {
+            padding: 15px 20px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .nav-tab.active {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .nav-tab:hover {
+            background: #f8f9fa;
+        }
+        
+        .content-area {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .page-content {
+            display: none;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .page-content.active {
+            display: block;
+        }
+        
+        .page-title {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .page-icon {
+            font-size: 1.2em;
+        }
+        
+        .page-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .code-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .code-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            margin: 15px 0;
+        }
+        
+        .file-path {
+            background: #e9ecef;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.9em;
+            color: #495057;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .features-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .preview-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .preview-note strong {
+            color: #856404;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📱 KyabiaHome 页面查看器</h1>
+        <p>查看所有页面的详细信息和代码结构</p>
+    </div>
+    
+    <div class="nav-tabs">
+        <button class="nav-tab active" onclick="showPage('index')">🏠 首页</button>
+        <button class="nav-tab" onclick="showPage('about')">👤 关于我</button>
+        <button class="nav-tab" onclick="showPage('works')">💼 作品集</button>
+        <button class="nav-tab" onclick="showPage('work-detail')">📄 作品详情</button>
+        <button class="nav-tab" onclick="showPage('contact')">📞 联系我</button>
+    </div>
+    
+    <div class="content-area">
+        <!-- 首页 -->
+        <div id="index" class="page-content active">
+            <h2 class="page-title">
+                <span class="page-icon">🏠</span>
+                首页 (index)
+            </h2>
+            <p class="page-description">
+                全屏背景展示页面，包含个人介绍和导航按钮。这是用户访问网站时看到的第一个页面，具有强烈的视觉冲击力。
+            </p>
+            
+            <div class="file-path">pages/index/index.uvue</div>
+            
+            <h3>主要功能：</h3>
+            <ul class="features-list">
+                <li>全屏背景图片展示（space.jpg）</li>
+                <li>个人介绍文字（Hello, I'm Kyabia）</li>
+                <li>导航按钮（查看作品、关于我）</li>
+                <li>装饰性边框效果</li>
+                <li>响应式设计</li>
+            </ul>
+            
+            <div class="code-section">
+                <h3>核心代码结构：</h3>
+                <div class="code-block"><template>
+	<view class="hero-container">
+		<!-- 背景图片 -->
+		<image class="hero-bg" src="/static/images/space.jpg" mode="aspectFill"></image>
+		
+		<!-- 内容区域 -->
+		<view class="hero-content">
+			<view class="hero-text">
+				<text class="hero-title">Hello,</text>
+				<text class="hero-subtitle">I'm Kyabia</text>
+			</view>
+			
+			<!-- 导航按钮 -->
+			<view class="nav-buttons">
+				<button class="nav-btn" @click="navigateTo('/pages/works/works')">
+					<text class="btn-text">查看作品</text>
+				</button>
+				<button class="nav-btn secondary" @click="navigateTo('/pages/about/about')">
+					<text class="btn-text">关于我</text>
+				</button>
+			</view>
+		</view>
+	</view>
+</template></div>
+            </div>
+            
+            <div class="preview-note">
+                <strong>💡 预览方式：</strong>使用 HBuilderX 运行项目后，首页会自动显示。包含全屏背景和导航按钮。
+            </div>
+        </div>
+        
+        <!-- 关于我 -->
+        <div id="about" class="page-content">
+            <h2 class="page-title">
+                <span class="page-icon">👤</span>
+                关于我 (about)
+            </h2>
+            <p class="page-description">
+                个人介绍页面，展示技能、经验和项目信息。包含个人头像、技能进度条和详细介绍。
+            </p>
+            
+            <div class="file-path">pages/about/about.uvue</div>
+            
+            <h3>主要功能：</h3>
+            <ul class="features-list">
+                <li>个人头像展示（profil.jpg）</li>
+                <li>个人基本信息</li>
+                <li>技能进度条展示</li>
+                <li>详细介绍文字</li>
+                <li>现代化卡片布局</li>
+            </ul>
+            
+            <div class="code-section">
+                <h3>核心代码结构：</h3>
+                <div class="code-block"><template>
+	<view class="about-container">
+		<view class="about-header">
+			<text class="page-title">关于我</text>
+		</view>
+		
+		<view class="about-content">
+			<view class="profile-section">
+				<image class="profile-image" src="/static/images/profil.jpg" mode="aspectFill"></image>
+				<view class="profile-info">
+					<text class="profile-name">Kyabia</text>
+					<text class="profile-title">前端开发者 & 设计师</text>
+				</view>
+			</view>
+			
+			<view class="skills-section">
+				<text class="section-title">技术栈</text>
+				<view class="skills-grid">
+					<view class="skill-item" v-for="skill in skills" :key="skill.name">
+						<text class="skill-name">{{ skill.name }}</text>
+						<view class="skill-bar">
+							<view class="skill-progress" :style="{ width: skill.level + '%' }"></view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template></div>
+            </div>
+            
+            <div class="preview-note">
+                <strong>💡 预览方式：</strong>通过底部导航栏的"关于"标签页访问，或从首页点击"关于我"按钮。
+            </div>
+        </div>
+        
+        <!-- 作品集 -->
+        <div id="works" class="page-content">
+            <h2 class="page-title">
+                <span class="page-icon">💼</span>
+                作品集 (works)
+            </h2>
+            <p class="page-description">
+                项目作品展示页面，包含项目列表和详情链接。展示多个项目，每个项目都有图片、标题、描述和标签。
+            </p>
+            
+            <div class="file-path">pages/works/works.uvue</div>
+            
+            <h3>主要功能：</h3>
+            <ul class="features-list">
+                <li>项目网格布局</li>
+                <li>项目图片展示</li>
+                <li>项目描述和标签</li>
+                <li>点击查看详情</li>
+                <li>加载更多功能</li>
+            </ul>
+            
+            <div class="code-section">
+                <h3>核心代码结构：</h3>
+                <div class="code-block"><template>
+	<view class="works-container">
+		<view class="works-header">
+			<text class="page-title">作品集</text>
+			<text class="page-subtitle">展示我的创意与技能</text>
+		</view>
+		
+		<view class="works-grid">
+			<view class="work-item" v-for="(work, index) in works" :key="work.id" @click="viewWorkDetail(work)">
+				<view class="work-image-container">
+					<image class="work-image" :src="work.image" mode="aspectFill"></image>
+					<view class="work-overlay">
+						<text class="work-number">{{ work.number }}</text>
+					</view>
+				</view>
+				<view class="work-info">
+					<text class="work-title">{{ work.title }}</text>
+					<text class="work-description">{{ work.description }}</text>
+					<view class="work-tags">
+						<text class="work-tag" v-for="tag in work.tags" :key="tag">{{ tag }}</text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template></div>
+            </div>
+            
+            <div class="preview-note">
+                <strong>💡 预览方式：</strong>通过底部导航栏的"作品"标签页访问，或从首页点击"查看作品"按钮。
+            </div>
+        </div>
+        
+        <!-- 作品详情 -->
+        <div id="work-detail" class="page-content">
+            <h2 class="page-title">
+                <span class="page-icon">📄</span>
+                作品详情 (work-detail)
+            </h2>
+            <p class="page-description">
+                单个项目的详细展示页面，包含图片画廊和项目信息。展示项目的详细信息、技术栈、开发时间等。
+            </p>
+            
+            <div class="file-path">pages/work-detail/work-detail.uvue</div>
+            
+            <h3>主要功能：</h3>
+            <ul class="features-list">
+                <li>项目详情展示</li>
+                <li>图片画廊</li>
+                <li>技术栈信息</li>
+                <li>客户评价</li>
+                <li>项目信息表格</li>
+            </ul>
+            
+            <div class="code-section">
+                <h3>核心代码结构：</h3>
+                <div class="code-block"><template>
+	<view class="detail-container">
+		<view class="detail-header">
+			<image class="detail-hero-image" :src="workDetail.heroImage" mode="aspectFill"></image>
+			<view class="detail-overlay">
+				<text class="detail-title">{{ workDetail.title }}</text>
+				<text class="detail-subtitle">{{ workDetail.subtitle }}</text>
+			</view>
+		</view>
+		
+		<view class="detail-content">
+			<view class="detail-description">
+				<text class="description-text">{{ workDetail.description }}</text>
+			</view>
+			
+			<view class="detail-gallery" v-if="workDetail.gallery && workDetail.gallery.length > 0">
+				<view class="gallery-grid">
+					<image class="gallery-item" v-for="(image, index) in workDetail.gallery" :key="index" :src="image" mode="aspectFill" @click="previewImage(image, index)"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+</template></div>
+            </div>
+            
+            <div class="preview-note">
+                <strong>💡 预览方式：</strong>从作品集页面点击任意项目进入详情页面。
+            </div>
+        </div>
+        
+        <!-- 联系我 -->
+        <div id="contact" class="page-content">
+            <h2 class="page-title">
+                <span class="page-icon">📞</span>
+                联系我 (contact)
+            </h2>
+            <p class="page-description">
+                联系表单页面，包含联系信息和社交媒体链接。用户可以填写表单发送消息，也可以查看联系方式。
+            </p>
+            
+            <div class="file-path">pages/contact/contact.uvue</div>
+            
+            <h3>主要功能：</h3>
+            <ul class="features-list">
+                <li>联系表单</li>
+                <li>联系信息展示</li>
+                <li>社交媒体链接</li>
+                <li>表单验证</li>
+                <li>消息发送功能</li>
+            </ul>
+            
+            <div class="code-section">
+                <h3>核心代码结构：</h3>
+                <div class="code-block"><template>
+	<view class="contact-container">
+		<view class="contact-header">
+			<text class="page-title">联系我</text>
+			<text class="page-subtitle">让我们一起创造美好的作品</text>
+		</view>
+		
+		<view class="contact-content">
+			<view class="contact-form-section">
+				<form @submit="submitForm">
+					<view class="form-group">
+						<input class="form-input" type="text" placeholder="您的姓名" v-model="form.name" />
+					</view>
+					<view class="form-group">
+						<input class="form-input" type="email" placeholder="邮箱地址" v-model="form.email" />
+					</view>
+					<button class="submit-btn" type="submit">发送消息</button>
+				</form>
+			</view>
+			
+			<view class="contact-info-section">
+				<view class="contact-info-list">
+					<view class="contact-info-item">
+						<view class="contact-icon">📱</view>
+						<view class="contact-details">
+							<text class="contact-label">电话</text>
+							<text class="contact-value">+86 138 0000 0000</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template></div>
+            </div>
+            
+            <div class="preview-note">
+                <strong>💡 预览方式：</strong>通过底部导航栏的"联系"标签页访问。
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="pages-preview.html" class="btn">📱 返回页面预览</a>
+            <a href="local-preview.html" class="btn btn-secondary">🚀 返回启动指南</a>
+        </div>
+    </div>
+    
+    <script>
+        function showPage(pageName) {
+            // 隐藏所有页面内容
+            const contents = document.querySelectorAll('.page-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // 移除所有标签的激活状态
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // 显示选中的页面内容
+            document.getElementById(pageName).classList.add('active');
+            
+            // 激活选中的标签
+            event.target.classList.add('active');
+        }
+        
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const contents = document.querySelectorAll('.page-content');
+            contents.forEach((content, index) => {
+                content.style.opacity = '0';
+                content.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    content.style.transition = 'all 0.6s ease';
+                    content.style.opacity = '1';
+                    content.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

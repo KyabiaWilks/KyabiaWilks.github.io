@@ -1,0 +1,36 @@
+{
+  "totalCharacters": 359,
+  "usedCharacters": "再按一次退出应用每个页面公共scriptlangufdeAPNDROIHMYBkTmxoLhSwbEy \"\r\n/-\t0{:().'},2;关于我前端开发者设计师专业技能注熟练掌握现代术栈包括等框架同时具备力够从到全流程参与项目经验拥有丰富的人作品企级都涉猎重码质量和户体追求艺完美结合学习态度保持续心行最新动趋势相信改变世界致创造好加载成vjFKWVUXJCz[9857]1346联系让们起表单送消息您姓名邮箱地址主题请输入中方式电话国北京社交媒微填写整模拟功置添在浏览器打G!?背景图片内容区域导航钮查看装饰性边首展示间类型客评价年月根据不详情这是小序了移佳实践很高优秀qQ\\集意更多数暂无生简标脚本会建并转换为定义录文件普通状激活Z字化分析使符子扫描所提取英点议约预可减少大只留际工处理库安格报告存已当案推荐执命令",
+  "recommendations": [
+    {
+      "font": "FontAwesome",
+      "currentSize": "约 100KB",
+      "optimization": "提取项目中使用到的图标，预计可减少 80% 大小",
+      "characters": "只保留项目中实际使用的图标"
+    },
+    {
+      "font": "Octin Sports",
+      "currentSize": "约 50KB",
+      "optimization": "提取中文字符子集，预计可减少 60% 大小",
+      "characters": "再按一次退出应用每个页面公共scriptlangufdeAPNDROIHMYBkTmxoLhSwbEy \"\r\n/-\t0{:().'},2;关于我前端开发者设计师专业技能注熟练掌握现代术栈包括等框架同时具备力够从到全流程参与项目经验拥有丰富的人作品企级都涉猎重码质量和户体追求艺完美结合学习态度保持续心行最新动趋势相信改变世界致创造好加载成vjFKWVUXJCz[9857]1346联系让们起表单送消息您姓名邮箱地址主题请输入中方式电话国北京社交媒微填写整模拟功置添在浏览器打G!?背景图片内容区域导航钮查看装饰性边首展示间类型客评价年月根据不详情这是小序了移佳实践很高优秀qQ\\集意更多数暂无生简标脚本会建并转换为定义录文件普通状激活Z字化分析使符子扫描所提取英点议约预可减少大只留际工处理库安格报告存已当案推荐执命令"
+    }
+  ],
+  "tools": [
+    "pyftsubset - 字体子集化工具",
+    "fonttools - Python 字体处理库",
+    "glyphhanger - 字符使用分析工具"
+  ],
+  "commands": [
+    "# 安装 fonttools",
+    "pip install fonttools[woff]",
+    "",
+    "# 提取 FontAwesome 子集（只保留使用的图标）",
+    "pyftsubset fontawesome-webfont.woff2 --text=\"home,user,envelope,phone\" --output-file=fontawesome-subset.woff2",
+    "",
+    "# 提取中文字符子集",
+    "pyftsubset octin_sports_rg.ttf --text=\"再按一次退出应用每个页面公共scriptlangufdeAPNDROIHMYBkTmxoLhSwbEy \"\r\n/-\t0{:().'},2;关于我前端开发者设计师专业技能注熟练掌握现代术栈包括等框架同时具备力够从到全流程参与项目经验拥有丰富的人作品企级都涉猎重码质量和户体追求艺完美结合学习态度保持续心行最新动趋势相信改变世界致创造好加载成vjFKWVUXJCz[9857]1346联系让们起表单送消息您姓名邮箱地址主题请输入中方式电话国北京社交媒微填写整模拟功置添在浏览器打G!?背景图片内容区域导航钮查看装饰性边首展示间类型客评价年月根据不详情这是小序了移佳实践很高优秀qQ\\集意更多数暂无生简标脚本会建并转换为定义录文件普通状激活Z字化分析使符子扫描所提取英点议约预可减少大只留际工处理库安格报告存已当案推荐执命令\" --output-file=octin-sports-subset.woff2",
+    "",
+    "# 转换为 WOFF2 格式",
+    "pyftsubset font.woff --flavor=woff2 --output-file=font.woff2"
+  ]
+}

@@ -1,0 +1,301 @@
+<template>
+	<view class="detail-container">
+		<view class="detail-header">
+			<image class="detail-hero-image" :src="workDetail.heroImage" mode="aspectFill"></image>
+			<view class="detail-overlay">
+				<text class="detail-title">{{ workDetail.title }}</text>
+				<text class="detail-subtitle">{{ workDetail.subtitle }}</text>
+			</view>
+		</view>
+		
+		<view class="detail-content">
+			<view class="detail-description">
+				<text class="description-text">{{ workDetail.description }}</text>
+			</view>
+			
+			<view class="detail-gallery" v-if="workDetail.gallery && workDetail.gallery.length > 0">
+				<view class="gallery-title">
+					<text class="gallery-title-text">项目展示</text>
+				</view>
+				<view class="gallery-grid">
+					<image 
+						class="gallery-item" 
+						v-for="(image, index) in workDetail.gallery" 
+						:key="index"
+						:src="image" 
+						mode="aspectFill"
+						@click="previewImage(image, index)"
+					></image>
+				</view>
+			</view>
+			
+			<view class="detail-info">
+				<view class="info-section">
+					<text class="info-title">项目信息</text>
+					<view class="info-item">
+						<text class="info-label">技术栈：</text>
+						<text class="info-value">{{ workDetail.techStack }}</text>
+					</view>
+					<view class="info-item">
+						<text class="info-label">开发时间：</text>
+						<text class="info-value">{{ workDetail.developmentTime }}</text>
+					</view>
+					<view class="info-item">
+						<text class="info-label">项目类型：</text>
+						<text class="info-value">{{ workDetail.projectType }}</text>
+					</view>
+				</view>
+				
+				<view class="info-section" v-if="workDetail.testimonial">
+					<text class="info-title">客户评价</text>
+					<view class="testimonial">
+						<text class="testimonial-text">"{{ workDetail.testimonial.text }}"</text>
+						<text class="testimonial-author">- {{ workDetail.testimonial.author }}</text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				workId: '',
+				workDetail: {
+					title: 'Fringilla sit amet',
+					subtitle: '001/006',
+					description: 'Nulla facilisi. Vivamus vestibulum, elit in scelerisque ultricies, nisl nunc pulvinar ligula, id sodales arcu sapien in nisi. Quisque libero enim, mattis non augue posuere, venenatis dapibus urna.',
+					heroImage: '/static/images/work001-01.jpg',
+					gallery: [
+						'/static/images/work001-02.jpg',
+						'/static/images/work001-03.jpg',
+						'/static/images/work001-04.jpg'
+					],
+					techStack: 'Vue.js, CSS3, HTML5',
+					developmentTime: '2024年1月',
+					projectType: 'Web应用',
+					testimonial: {
+						text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.',
+						author: 'Irina Martin'
+					}
+				}
+			}
+		},
+		onLoad(options) {
+			if (options.id) {
+				this.workId = options.id
+				this.loadWorkDetail(options.id)
+			}
+			if (options.title) {
+				this.workDetail.title = decodeURIComponent(options.title)
+			}
+		},
+		methods: {
+			loadWorkDetail(id) {
+				// 根据ID加载不同的作品详情
+				const workDetails = {
+					'1': {
+						title: 'Fringilla sit amet',
+						subtitle: '001/006',
+						description: 'Nulla facilisi. Vivamus vestibulum, elit in scelerisque ultricies, nisl nunc pulvinar ligula, id sodales arcu sapien in nisi. Quisque libero enim, mattis non augue posuere, venenatis dapibus urna.',
+						heroImage: '/static/images/work001-01.jpg',
+						gallery: [
+							'/static/images/work001-02.jpg',
+							'/static/images/work001-03.jpg',
+							'/static/images/work001-04.jpg'
+						],
+						techStack: 'Vue.js, CSS3, HTML5',
+						developmentTime: '2024年1月',
+						projectType: 'Web应用',
+						testimonial: {
+							text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.',
+							author: 'Irina Martin'
+						}
+					},
+					'2': {
+						title: 'WeChat Program Mini',
+						subtitle: '002/006',
+						description: 'Set an example for kyabia\'s WeChat program homework. 这是一个微信小程序项目，展示了现代移动端开发的最佳实践。',
+						heroImage: '/static/images/work02-hover.jpg',
+						gallery: [
+							'/static/images/work02-hover.jpg'
+						],
+						techStack: '微信小程序, JavaScript, WXML',
+						developmentTime: '2024年2月',
+						projectType: '小程序',
+						testimonial: {
+							text: '项目完成度很高，用户体验优秀。',
+							author: '项目导师'
+						}
+					}
+				}
+				
+				if (workDetails[id]) {
+					this.workDetail = workDetails[id]
+				}
+			},
+			previewImage(current, index) {
+				uni.previewImage({
+					current: index,
+					urls: this.workDetail.gallery
+				})
+			}
+		}
+	}
+</script>
+
+<style>
+	.detail-container {
+		background: #f8f9fa;
+		min-height: 100vh;
+	}
+	
+	.detail-header {
+		position: relative;
+		height: 300px;
+		overflow: hidden;
+	}
+	
+	.detail-hero-image {
+		width: 100%;
+		height: 100%;
+	}
+	
+	.detail-overlay {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+		padding: 30px 20px 20px;
+	}
+	
+	.detail-title {
+		display: block;
+		font-size: 24px;
+		font-weight: bold;
+		color: #ffffff;
+		margin-bottom: 5px;
+	}
+	
+	.detail-subtitle {
+		display: block;
+		font-size: 14px;
+		color: #ffffff;
+		opacity: 0.8;
+	}
+	
+	.detail-content {
+		padding: 20px;
+	}
+	
+	.detail-description {
+		background: #ffffff;
+		border-radius: 15px;
+		padding: 20px;
+		margin-bottom: 20px;
+		box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+	}
+	
+	.description-text {
+		font-size: 14px;
+		line-height: 1.6;
+		color: #666;
+	}
+	
+	.detail-gallery {
+		background: #ffffff;
+		border-radius: 15px;
+		padding: 20px;
+		margin-bottom: 20px;
+		box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+	}
+	
+	.gallery-title {
+		margin-bottom: 15px;
+	}
+	
+	.gallery-title-text {
+		font-size: 18px;
+		font-weight: bold;
+		color: #333;
+	}
+	
+	.gallery-grid {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+	
+	.gallery-item {
+		width: 100%;
+		height: 200px;
+		border-radius: 10px;
+	}
+	
+	.detail-info {
+		background: #ffffff;
+		border-radius: 15px;
+		padding: 20px;
+		box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+	}
+	
+	.info-section {
+		margin-bottom: 25px;
+	}
+	
+	.info-section:last-child {
+		margin-bottom: 0;
+	}
+	
+	.info-title {
+		display: block;
+		font-size: 18px;
+		font-weight: bold;
+		color: #333;
+		margin-bottom: 15px;
+	}
+	
+	.info-item {
+		display: flex;
+		margin-bottom: 10px;
+	}
+	
+	.info-label {
+		font-size: 14px;
+		color: #666;
+		width: 80px;
+		flex-shrink: 0;
+	}
+	
+	.info-value {
+		font-size: 14px;
+		color: #333;
+		flex: 1;
+	}
+	
+	.testimonial {
+		background: #f8f9fa;
+		padding: 15px;
+		border-radius: 10px;
+		border-left: 4px solid #007AFF;
+	}
+	
+	.testimonial-text {
+		display: block;
+		font-size: 14px;
+		line-height: 1.5;
+		color: #333;
+		margin-bottom: 10px;
+		font-style: italic;
+	}
+	
+	.testimonial-author {
+		display: block;
+		font-size: 12px;
+		color: #666;
+		text-align: right;
+	}
+</style>

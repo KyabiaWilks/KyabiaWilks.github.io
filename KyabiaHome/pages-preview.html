@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KyabiaHome - 页面预览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .pages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .page-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .page-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .page-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .page-title {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .page-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .page-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .page-features li {
+            color: #555;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .page-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .preview-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .preview-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .preview-btn.secondary {
+            background: #f8f9fa;
+            color: #333;
+            border: 2px solid #e9ecef;
+        }
+        
+        .preview-btn.secondary:hover {
+            background: #e9ecef;
+        }
+        
+        .how-to-view {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .how-to-view h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .method {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .method h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .method ol {
+            margin-left: 20px;
+        }
+        
+        .method li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .code {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .file-path {
+            background: #e9ecef;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.9em;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📱 KyabiaHome 页面预览</h1>
+            <p>查看所有页面的功能和预览方式</p>
+        </div>
+        
+        <div class="how-to-view">
+            <h2>🎯 如何查看这些页面</h2>
+            
+            <div class="method">
+                <h3>方法一：使用 HBuilderX（推荐）</h3>
+                <ol>
+                    <li>下载并安装 <a href="https://www.dcloud.io/hbuilderx.html" target="_blank">HBuilderX</a></li>
+                    <li>打开 HBuilderX，文件 → 打开目录 → 选择 KyabiaHome 文件夹</li>
+                    <li>点击"运行" → "运行到浏览器" → "Chrome"</li>
+                    <li>在浏览器中可以看到完整的 uni-app 应用，包括底部导航</li>
+                </ol>
+                <div class="success">
+                    ✅ 这是最佳方式，可以看到完整的页面功能和交互效果
+                </div>
+            </div>
+            
+            <div class="method">
+                <h3>方法二：查看源代码</h3>
+                <ol>
+                    <li>在文件管理器中打开 <span class="file-path">pages/</span> 目录</li>
+                    <li>每个页面文件夹包含一个 <span class="file-path">.uvue</span> 文件</li>
+                    <li>用文本编辑器打开这些文件查看代码结构</li>
+                </ol>
+                <div class="warning">
+                    ⚠️ 这种方式只能查看代码，无法看到实际效果
+                </div>
+            </div>
+            
+            <div class="method">
+                <h3>方法三：使用 uni-app CLI</h3>
+                <ol>
+                    <li>安装 uni-app CLI：<span class="code">npm install -g @dcloudio/uni-cli</span></li>
+                    <li>在项目目录运行：<span class="code">npm run dev:h5</span></li>
+                    <li>在浏览器中查看完整应用</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="pages-grid">
+            <div class="page-card">
+                <span class="page-icon">🏠</span>
+                <h3 class="page-title">首页 (index)</h3>
+                <p class="page-description">全屏背景展示页面，包含个人介绍和导航按钮</p>
+                <ul class="page-features">
+                    <li>全屏背景图片展示</li>
+                    <li>个人介绍文字</li>
+                    <li>导航按钮</li>
+                    <li>装饰性边框</li>
+                </ul>
+                <div class="file-path">pages/index/index.uvue</div>
+                <button class="preview-btn" onclick="showCode('index')">查看代码</button>
+                <button class="preview-btn secondary" onclick="showPreview('index')">预览效果</button>
+            </div>
+            
+            <div class="page-card">
+                <span class="page-icon">👤</span>
+                <h3 class="page-title">关于我 (about)</h3>
+                <p class="page-description">个人介绍页面，展示技能、经验和项目信息</p>
+                <ul class="page-features">
+                    <li>个人头像展示</li>
+                    <li>技能进度条</li>
+                    <li>个人介绍文字</li>
+                    <li>技术栈展示</li>
+                </ul>
+                <div class="file-path">pages/about/about.uvue</div>
+                <button class="preview-btn" onclick="showCode('about')">查看代码</button>
+                <button class="preview-btn secondary" onclick="showPreview('about')">预览效果</button>
+            </div>
+            
+            <div class="page-card">
+                <span class="page-icon">💼</span>
+                <h3 class="page-title">作品集 (works)</h3>
+                <p class="page-description">项目作品展示页面，包含项目列表和详情链接</p>
+                <ul class="page-features">
+                    <li>项目网格布局</li>
+                    <li>项目图片展示</li>
+                    <li>项目描述</li>
+                    <li>标签分类</li>
+                </ul>
+                <div class="file-path">pages/works/works.uvue</div>
+                <button class="preview-btn" onclick="showCode('works')">查看代码</button>
+                <button class="preview-btn secondary" onclick="showPreview('works')">预览效果</button>
+            </div>
+            
+            <div class="page-card">
+                <span class="page-icon">📄</span>
+                <h3 class="page-title">作品详情 (work-detail)</h3>
+                <p class="page-description">单个项目的详细展示页面，包含图片画廊和项目信息</p>
+                <ul class="page-features">
+                    <li>项目详情展示</li>
+                    <li>图片画廊</li>
+                    <li>技术栈信息</li>
+                    <li>客户评价</li>
+                </ul>
+                <div class="file-path">pages/work-detail/work-detail.uvue</div>
+                <button class="preview-btn" onclick="showCode('work-detail')">查看代码</button>
+                <button class="preview-btn secondary" onclick="showPreview('work-detail')">预览效果</button>
+            </div>
+            
+            <div class="page-card">
+                <span class="page-icon">📞</span>
+                <h3 class="page-title">联系我 (contact)</h3>
+                <p class="page-description">联系表单页面，包含联系信息和社交媒体链接</p>
+                <ul class="page-features">
+                    <li>联系表单</li>
+                    <li>联系信息展示</li>
+                    <li>社交媒体链接</li>
+                    <li>表单验证</li>
+                </ul>
+                <div class="file-path">pages/contact/contact.uvue</div>
+                <button class="preview-btn" onclick="showCode('contact')">查看代码</button>
+                <button class="preview-btn secondary" onclick="showPreview('contact')">预览效果</button>
+            </div>
+        </div>
+        
+        <div class="how-to-view">
+            <h2>📋 页面文件结构</h2>
+            <div class="code">
+pages/
+├── index/
+│   └── index.uvue          # 首页
+├── about/
+│   └── about.uvue          # 关于我
+├── works/
+│   └── works.uvue          # 作品集
+├── work-detail/
+│   └── work-detail.uvue    # 作品详情
+└── contact/
+    └── contact.uvue        # 联系我
+            </div>
+            
+            <div class="success">
+                <strong>💡 提示：</strong>每个 .uvue 文件都包含完整的页面代码，包括模板、脚本和样式。
+                使用 HBuilderX 运行项目后，可以通过底部导航栏切换查看不同页面。
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showCode(pageName) {
+            alert(`查看 ${pageName} 页面代码：\n\n文件路径：pages/${pageName}/${pageName}.uvue\n\n请使用文本编辑器打开该文件查看完整代码。`);
+        }
+        
+        function showPreview(pageName) {
+            alert(`预览 ${pageName} 页面效果：\n\n1. 使用 HBuilderX 运行项目\n2. 在浏览器中查看完整应用\n3. 通过底部导航切换到 ${pageName} 页面\n\n这是查看页面效果的最佳方式！`);
+        }
+        
+        // 添加页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.page-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+{
+    "name" : "KyabiaHome",
+    "appid" : "__UNI__24A8409",
+    "description" : "Kyabia的个人主页 - 展示作品集和个人信息的现代化多端应用",
+    "versionName" : "1.0.0",
+    "versionCode" : "100",
+    "uni-app-x" : {},
+    /* 快应用特有相关 */
+    "quickapp" : {},
+    /* 小程序特有相关 */
+    "mp-weixin" : {
+        "appid" : "",
+        "setting" : {
+            "urlCheck" : false,
+            "es6" : true,
+            "enhance" : true,
+            "showShadowRootInWxmlPanel" : true,
+            "packNpmManually" : false,
+            "packNpmRelationList" : [],
+            "minifyWXSS" : true,
+            "showES6CompileOption" : false,
+            "minifyWXML" : true,
+            "babelSetting" : {
+                "ignore" : [],
+                "disablePlugins" : [],
+                "outputPath" : ""
+            }
+        },
+        "usingComponents" : true,
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "你的位置信息将用于小程序位置接口的效果展示"
+            }
+        }
+    },
+    "mp-alipay" : {
+        "usingComponents" : true,
+        "component2" : true,
+        "enableAppxNg" : true
+    },
+    "mp-baidu" : {
+        "usingComponents" : true
+    },
+    "mp-toutiao" : {
+        "usingComponents" : true
+    },
+    "uniStatistics" : {
+        "enable" : false
+    },
+    "vueVersion" : "3",
+    "h5" : {
+        "title" : "Kyabia - 个人主页",
+        "template" : "index.html",
+        "router" : {
+            "mode" : "hash",
+            "base" : "./"
+        },
+        "optimization" : {
+            "treeShaking" : {
+                "enable" : true
+            }
+        },
+        "publicPath" : "./",
+        "sdkConfigs" : {}
+    },
+    "app" : {
+        "distribute" : {
+            "android" : {
+                "permissions" : [
+                    "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\" />",
+                    "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\" />",
+                    "<uses-permission android:name=\"android.permission.VIBRATE\" />",
+                    "<uses-permission android:name=\"android.permission.READ_LOGS\" />",
+                    "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\" />",
+                    "<uses-feature android:name=\"android.hardware.camera.autofocus\" />",
+                    "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                    "<uses-permission android:name=\"android.permission.CAMERA\" />",
+                    "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
+                    "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\" />",
+                    "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\" />",
+                    "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
+                    "<uses-permission android:name=\"android.permission.FLASHLIGHT\" />",
+                    "<uses-feature android:name=\"android.hardware.camera\" />",
+                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\" />"
+                ]
+            },
+            "ios" : {},
+            "sdkConfigs" : {}
+        },
+        "icons" : {
+            "android" : {
+                "hdpi" : "",
+                "xhdpi" : "",
+                "xxhdpi" : "",
+                "xxxhdpi" : ""
+            },
+            "ios" : {
+                "appstore" : "",
+                "iphone" : {
+                    "app@2x" : "",
+                    "app@3x" : "",
+                    "notification@2x" : "",
+                    "notification@3x" : "",
+                    "settings@2x" : "",
+                    "settings@3x" : "",
+                    "spotlight@2x" : "",
+                    "spotlight@3x" : ""
+                },
+                "ipad" : {
+                    "app@2x" : "",
+                    "app" : "",
+                    "proapp@2x" : "",
+                    "settings@2x" : "",
+                    "settings" : "",
+                    "spotlight@2x" : "",
+                    "spotlight" : ""
+                }
+            }
+        }
+    }
+}

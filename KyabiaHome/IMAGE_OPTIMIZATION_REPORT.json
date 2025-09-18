@@ -1,0 +1,201 @@
+{
+  "totalImages": 10,
+  "totalSize": 917535,
+  "totalSizeKB": 896,
+  "images": [
+    {
+      "name": "perfume_page.jpg",
+      "path": "/Users/kyabiawilks/KyabiaHome/KyabiaWilks.github.io/KyabiaHome/static/images/perfume_page.jpg",
+      "size": 389729,
+      "sizeKB": 381,
+      "extension": ".jpg"
+    },
+    {
+      "name": "profil.jpg",
+      "path": "/Users/kyabiawilks/KyabiaHome/KyabiaWilks.github.io/KyabiaHome/static/images/profil.jpg",
+      "size": 21215,
+      "sizeKB": 21,
+      "extension": ".jpg"
+    },
+    {
+      "name": "space.jpg",
+      "path": "/Users/kyabiawilks/KyabiaHome/KyabiaWilks.github.io/KyabiaHome/static/images/space.jpg",
+      "size": 104035,
+      "sizeKB": 102,
+      "extension": ".jpg"
+    },
+    {
+      "name": "work001-01.jpg",
+      "path": "/Users/kyabiawilks/KyabiaHome/KyabiaWilks.github.io/KyabiaHome/static/images/work001-01.jpg",
+      "size": 72381,
+      "sizeKB": 71,
+      "extension": ".jpg"
+    },
+    {
+      "name": "work001-02.jpg",
+      "path": "/Users/kyabiawilks/KyabiaHome/KyabiaWilks.github.io/KyabiaHome/static/images/work001-02.jpg",
+      "size": 29553,
+      "sizeKB": 29,
+      "extension": ".jpg"
+    },
+    {
+      "name": "work001-03.jpg",
+      "path": "/Users/kyabiawilks/KyabiaHome/KyabiaWilks.github.io/KyabiaHome/static/images/work001-03.jpg",
+      "size": 54247,
+      "sizeKB": 53,
+      "extension": ".jpg"
+    },
+    {
+      "name": "work001-04.jpg",
+      "path": "/Users/kyabiawilks/KyabiaHome/KyabiaWilks.github.io/KyabiaHome/static/images/work001-04.jpg",
+      "size": 126091,
+      "sizeKB": 123,
+      "extension": ".jpg"
+    },
+    {
+      "name": "work01-hover.jpg",
+      "path": "/Users/kyabiawilks/KyabiaHome/KyabiaWilks.github.io/KyabiaHome/static/images/work01-hover.jpg",
+      "size": 34619,
+      "sizeKB": 34,
+      "extension": ".jpg"
+    },
+    {
+      "name": "work02-hover.jpg",
+      "path": "/Users/kyabiawilks/KyabiaHome/KyabiaWilks.github.io/KyabiaHome/static/images/work02-hover.jpg",
+      "size": 34607,
+      "sizeKB": 34,
+      "extension": ".jpg"
+    },
+    {
+      "name": "work03-hover.jpg",
+      "path": "/Users/kyabiawilks/KyabiaHome/KyabiaWilks.github.io/KyabiaHome/static/images/work03-hover.jpg",
+      "size": 51058,
+      "sizeKB": 50,
+      "extension": ".jpg"
+    }
+  ],
+  "recommendations": [
+    {
+      "type": "压缩优化",
+      "description": "使用工具压缩图片，减少文件大小",
+      "tools": [
+        "imagemin",
+        "tinypng",
+        "squoosh"
+      ],
+      "estimatedSavings": "30-50%"
+    },
+    {
+      "type": "格式转换",
+      "description": "将 JPG/PNG 转换为 WebP 格式",
+      "tools": [
+        "cwebp",
+        "imagemin-webp"
+      ],
+      "estimatedSavings": "25-35%"
+    },
+    {
+      "type": "尺寸优化",
+      "description": "根据使用场景调整图片尺寸",
+      "tools": [
+        "sharp",
+        "imagemin"
+      ],
+      "estimatedSavings": "40-60%"
+    },
+    {
+      "type": "响应式图片",
+      "description": "为不同设备提供不同尺寸的图片",
+      "tools": [
+        "responsive-loader",
+        "imagemin"
+      ],
+      "estimatedSavings": "20-30%"
+    }
+  ],
+  "specificRecommendations": [
+    {
+      "name": "perfume_page.jpg",
+      "sizeKB": 381,
+      "recommendation": "中优先级：建议压缩优化",
+      "priority": "medium",
+      "suggestedSize": "600x400 (通用)"
+    },
+    {
+      "name": "profil.jpg",
+      "sizeKB": 21,
+      "recommendation": "低优先级：文件大小合理",
+      "priority": "low",
+      "suggestedSize": "300x300 (头像)"
+    },
+    {
+      "name": "space.jpg",
+      "sizeKB": 102,
+      "recommendation": "低优先级：文件大小合理",
+      "priority": "low",
+      "suggestedSize": "1920x1080 (背景图)"
+    },
+    {
+      "name": "work001-01.jpg",
+      "sizeKB": 71,
+      "recommendation": "低优先级：文件大小合理",
+      "priority": "low",
+      "suggestedSize": "800x600 (作品展示)"
+    },
+    {
+      "name": "work001-02.jpg",
+      "sizeKB": 29,
+      "recommendation": "低优先级：文件大小合理",
+      "priority": "low",
+      "suggestedSize": "800x600 (作品展示)"
+    },
+    {
+      "name": "work001-03.jpg",
+      "sizeKB": 53,
+      "recommendation": "低优先级：文件大小合理",
+      "priority": "low",
+      "suggestedSize": "800x600 (作品展示)"
+    },
+    {
+      "name": "work001-04.jpg",
+      "sizeKB": 123,
+      "recommendation": "低优先级：文件大小合理",
+      "priority": "low",
+      "suggestedSize": "800x600 (作品展示)"
+    },
+    {
+      "name": "work01-hover.jpg",
+      "sizeKB": 34,
+      "recommendation": "低优先级：文件大小合理",
+      "priority": "low",
+      "suggestedSize": "800x600 (作品展示)"
+    },
+    {
+      "name": "work02-hover.jpg",
+      "sizeKB": 34,
+      "recommendation": "低优先级：文件大小合理",
+      "priority": "low",
+      "suggestedSize": "800x600 (作品展示)"
+    },
+    {
+      "name": "work03-hover.jpg",
+      "sizeKB": 50,
+      "recommendation": "低优先级：文件大小合理",
+      "priority": "low",
+      "suggestedSize": "800x600 (作品展示)"
+    }
+  ],
+  "commands": [
+    "# 安装图片优化工具",
+    "npm install -g imagemin-cli imagemin-mozjpeg imagemin-pngquant imagemin-webp",
+    "",
+    "# 批量压缩图片",
+    "imagemin static/images/*.{jpg,png} --out-dir=static/images/optimized --plugin=mozjpeg --plugin=pngquant",
+    "",
+    "# 转换为 WebP 格式",
+    "imagemin static/images/*.{jpg,png} --out-dir=static/images/webp --plugin=webp",
+    "",
+    "# 调整图片尺寸",
+    "imagemin static/images/*.{jpg,png} --out-dir=static/images/resized --plugin=mozjpeg --plugin=pngquant"
+  ]
+}
